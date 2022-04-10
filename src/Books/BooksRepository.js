@@ -16,9 +16,10 @@ class BooksRepository {
   };
 
   addBook = async (bookPm) => {
-    await this.postData(bookPm);
+    let result = await this.postData(bookPm);
     await this.loadApiData();
     this.programmersModel.notify();
+    return result;
   };
 
   loadApiData = async () => {

@@ -11,6 +11,6 @@ export default class BooksPresenter {
   };
 
   addBook = async (bookDto) => {
-    await booksRepository.addBook(bookDto);
+    return await booksRepository.addBook(bookDto);
   };
 }
