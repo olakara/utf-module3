@@ -15,6 +15,12 @@ class BooksRepository {
     this.programmersModel.notify();
   };
 
+  addBook = async (bookPm) => {
+    await this.postData(bookPm);
+    await this.loadData();
+    this.programmersModel.notify();
+  };
+
   loadApiData = async () => {
     const booksDto = await httpGateway.get(this.apiUrl + "books");
     this.programmersModel.value = booksDto.result.map((bookDto) => {
