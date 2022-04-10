@@ -17,7 +17,7 @@ class BooksRepository {
 
   addBook = async (bookPm) => {
     await this.postData(bookPm);
-    await this.loadData();
+    await this.loadApiData();
     this.programmersModel.notify();
   };
 
@@ -26,6 +26,10 @@ class BooksRepository {
     this.programmersModel.value = booksDto.result.map((bookDto) => {
       return bookDto;
     });
+  };
+
+  postData = async (bookDto) => {
+    return await httpGateway.post(this.apiUrl + "books", bookDto);
   };
 }
 

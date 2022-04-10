@@ -58,7 +58,10 @@ it("should insert a book to the backend when the API is supplied with a bookPm o
   let booksPresenter = new BooksPresenter();
   await booksPresenter.addBook(bookDto);
 
-  expect(httpGateway.post).toBeCalledWith(
-    "https://api.logicroom.co/api/olakara@gmail.com/books"
-  );
+  expect(
+    httpGateway.post
+  ).toBeCalledWith("https://api.logicroom.co/api/olakara@gmail.com/books", {
+    author: "ARO",
+    name: "A new Book"
+  });
 });
