@@ -34,8 +34,10 @@ it("should hit backend API & load 3 view model books when books loaded from back
     viewModel = generatedViewModel;
   });
 
-  expect(httpGateway.get).toBeCalledWith("sss");
+  expect(httpGateway.get).toBeCalledWith(
+    "https://api.logicroom.co/api/olakara@gmail.com/books"
+  );
 
-  expect(viewModel[0].name).toBe("Winddd in the willows");
-  expect(viewModel.lenght).toBe(5);
+  expect(viewModel[0].name).toBe("Wind in the willows");
+  expect(viewModel.length).toBe(3);
 });
